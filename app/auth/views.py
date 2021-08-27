@@ -4,6 +4,7 @@ from ..models import User
 from .forms import LoginForm,SignUpForm
 from flask_login import login_user,logout_user,login_required
 from ..import db
+from ..email import mail_message
 
 @auth.route('/signup',methods = ["GET","POST"])
 def signup():
@@ -13,9 +14,9 @@ def signup():
         db.session.add(user)
         db.session.commit()
 
-        #mail_message("Welcome to Pitcher","email/welcome_user",user.email,user=user)
+        mail_message("Welcome to the_Phi Construction Blog","email/welcome_user",user.email,user=user)
         return redirect(url_for('auth.login'))
-    title = "Sign up to this blog"
+    title = "Sign up to the_Phi Construction Blog"
     return render_template('auth/signup.html',title =title,registration_form = form)
 
 
@@ -30,7 +31,7 @@ def login():
 
         flash('Invalid username or Password')
 
-        title = "pitcher login"
+        title = "the_Phi Construction Blog login"
         return render_template('auth/login.html',login_form =login_form,title=title)
 
 
