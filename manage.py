@@ -12,9 +12,9 @@ manager.add_command("db",MigrateCommand)
 
 @manager.command
 def test():
-    """
+    '''
     Run the unittests
-    """
+    '''
     import unittest
     tests = unittest.TestLoader().discover("tests")
     unittest.TextTestRunner(verbosity = 2).run(tests)
