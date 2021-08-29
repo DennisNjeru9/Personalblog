@@ -16,4 +16,4 @@ def four_Ow_four(error):
         db.session.commit()
         mail_message("Thank you for subscribing to the Avache blog", 
                         "email/welcome", new_sub.email)
-    return render_template("notfound.html"),404
+    return render_template('fourOwfour.html'),404

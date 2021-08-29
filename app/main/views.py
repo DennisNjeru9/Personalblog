@@ -12,6 +12,7 @@ import bleach
 
 @main.route('/', methods = ['GET','POST'])
 def index():
+    user = User.query.filter_by(username = ' ').first()
     posts = Post.get_all_posts()
     quote = get_quote()
 
@@ -20,7 +21,7 @@ def index():
         db.session.add(new_sub)
         db.session.commit()
         mail_message('Thank you for subscribing to the_Phi Construction Blog', 'email/welcome', new_sub.email)
-    return render_template('index.html',posts = posts, quote = quote)
+    return render_template('index.html',user = user,posts = posts, quote = quote)
 
 
 @main.route('/post/<int:id>', methods = ['POST','GET'])
@@ -106,9 +107,9 @@ def new_post():
     return render_template('new_post.html', post_form = post_form)
 
 
-@main.route('/profile/<int:id>', methods = ['POST','GET'])
-def profile(id):
-    user = User.query.filter_by(id = id).first()
+@main.route('/user/<uname>', methods = ['POST','GET'])
+def profile(uname):
+    user = User.query.filter_by(username = uname).first()
     posts = Post.query.filter_by(user_id = id).all()
 
     if request.method == 'POST':

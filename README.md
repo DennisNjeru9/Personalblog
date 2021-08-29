@@ -1,11 +1,11 @@
 ## Project Name 
-**Personal Blog**
+**the_Phi Construction Blog**
 
 ## Author 
 **Dennis Njeru**
 
 ## Description 
-- This is a for personal blogging website where you can create and share your opinions and other users can read and comment on them.
+- This is is a personal blogging website focusing on the construction industry, where the owner can post and share his opinions in construction topics and projects. Additionally other users can read and comment on the topics.
 
 ## User Story in Pictures
 ####  User view

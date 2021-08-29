@@ -78,7 +78,7 @@ class Post(db.Model):
 
     @classmethod
     def get_all_posts(cls):
-        return Post.query.order_by(Post.posted_at).all()
+        return Post.query.order_by(Post.date_posted).all()
 
 
 class Comment(db.Model):
