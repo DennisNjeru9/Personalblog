@@ -9,8 +9,8 @@ from config import config_options
 
 db = SQLAlchemy()
 login_manager = LoginManager()
-login_manager.session_protection = "strong"
-login_manager.login_view = "auth.login"
+login_manager.session_protection = 'strong'
+login_manager.login_view = 'auth.login'
 photos = UploadSet("photos", IMAGES)
 mail = Mail()
 bootstrap = Bootstrap()
@@ -36,7 +36,7 @@ def create_app(config_name):
 
     # Registering auth blueprint
     from .auth import auth as auth_blueprint
-    app.register_blueprint(auth_blueprint, url_prefix = "/authenticate")
+    app.register_blueprint(auth_blueprint, url_prefix ='/auth')
     
     #Configure UploadSet
     configure_uploads(app, photos)

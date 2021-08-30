@@ -12,7 +12,7 @@ import bleach
 
 @main.route('/', methods = ['GET','POST'])
 def index():
-    user = User.query.filter_by(username = ' ').first()
+    user = User.query.filter_by(username='').first()
     posts = Post.get_all_posts()
     quote = get_quote()
 
@@ -22,6 +22,12 @@ def index():
         db.session.commit()
         mail_message('Thank you for subscribing to the_Phi Construction Blog', 'email/welcome', new_sub.email)
     return render_template('index.html',user = user,posts = posts, quote = quote)
+
+
+@main.route('/secret')
+@login_required
+def secret():
+    return 'Only authenticated users are allowed!'
 
 
 @main.route('/post/<int:id>', methods = ['POST','GET'])
@@ -109,7 +115,7 @@ def new_post():
 
 @main.route('/user/<uname>', methods = ['POST','GET'])
 def profile(uname):
-    user = User.query.filter_by(username = uname).first()
+    user = User.query.filter_by(username=uname).first()
     posts = Post.query.filter_by(user_id = id).all()
 
     if request.method == 'POST':

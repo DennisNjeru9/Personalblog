@@ -1,13 +1,13 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField,PasswordField,BooleanField,SubmitField,ValidationError
-from wtforms.validators import Required, Email, EqualTo
+from wtforms.validators import DataRequired,Email,Length,EqualTo
 from ..models import User
 
 class SignUpForm(FlaskForm):
-    email = StringField('Your Email Address',validators=[Required(),Email()])
-    username = StringField('Enter your username',validators=[Required()])
-    password = PasswordField('PasswordField',validators=[Required(), EqualTo('password_confirm', message='Passwords must match')])
-    password_confirm = PasswordField('Confirm Passwords', validators=[Required()])
+    email = StringField('Your Email Address',validators=[DataRequired(),Email()])
+    username = StringField('Enter your username',validators=[DataRequired()])
+    password = PasswordField('PasswordField',validators=[DataRequired(), EqualTo('password_confirm', message='Passwords must match')])
+    password_confirm = PasswordField('Confirm Passwords', validators=[DataRequired()])
     submit = SubmitField('Sign Up')
 
     def validate_email(self,data_field):
@@ -20,7 +20,7 @@ class SignUpForm(FlaskForm):
 
 
 class LoginForm(FlaskForm):
-    email = StringField('Your Email Address',validators=[Required(),Email()])
-    password = PasswordField('Password',validators =[Required()])
-    remember = BooleanField('Remember me')
-    submit = SubmitField('Sign In')
+    email = StringField('Your Email Address',validators=[DataRequired(),Length(1,64),Email()])
+    password = PasswordField('Password',validators =[DataRequired()])
+    remember_me = BooleanField('Keep me loggin in')
+    submit = SubmitField('Log In')

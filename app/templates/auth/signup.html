@@ -1,16 +1,27 @@
-{%extends "base.html"%}
-{%import "bootstrap/wtf.html" as wtf%}
-{%block content%}
+{%extends 'base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}the_Phi Construction Sign Up{% endblock %}
+
+{% block page_content% }
 
     <br><br><br>
     <div class="container">
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
-                {{wtf.quick_form(signup_form)}}
+        <div class="page-header">
+            <div class="row">
+                <h1> Hello, {% if username %} {{username}} {% else %} Stranger {% endif %}</h1>
+                {% if not known %}
+                    <p>Pleased to meet you!</p>
+                {% else %}
+                    <p>Happy to see you again!</p>
+                {% endif %}
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    {{wtf.quick_form(signup_form)}}
+                </div>
+                <div class="col-md-2"></div>
             </div>
-            <div class="col-md-2"></div>
         </div>
     </div>
 
-{%endblock%}
+{% endblock %}

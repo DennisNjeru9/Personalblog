@@ -5,7 +5,7 @@ class TestPost(unittest.TestCase):
     
     def setUp(self):
         self.user_dennis = User(username = "the_phi",password = "dennje349",email = "testmail@gmail.com")
-        self.new_post = Post(post_title = "Cement",post_content = "Types of cement used in construction",user_id = self.user_dennis.id)
+        self.new_post = Post(title = "Cement",content = "Types of cement used in construction",user_id = self.user_dennis.id)
         self.new_comment = Comment(comment = "Great piece",post_id = self.new_post.id,user_id = self.user_dennis.id)
 
     def test_instance(self):
