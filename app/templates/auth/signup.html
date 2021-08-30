@@ -3,7 +3,7 @@
 
 {% block title %}the_Phi Construction Sign Up{% endblock %}
 
-{% block page_content% }
+{% block content %}
 
     <br><br><br>
     <div class="container">
@@ -17,7 +17,7 @@
                 {% endif %}
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                    {{wtf.quick_form(signup_form)}}
+                    {{wtf.quick_form(form)}}
                 </div>
                 <div class="col-md-2"></div>
             </div>

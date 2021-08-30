@@ -6,6 +6,7 @@ from flask_mail import Mail
 from flask_bootstrap import Bootstrap
 from flask_admin import Admin
 from config import config_options
+from flask_wtf.csrf import CSRFProtect
 
 db = SQLAlchemy()
 login_manager = LoginManager()
@@ -15,6 +16,7 @@ photos = UploadSet("photos", IMAGES)
 mail = Mail()
 bootstrap = Bootstrap()
 admin = Admin()
+csrf = CSRFProtect()
 
 def create_app(config_name):
     
@@ -29,6 +31,7 @@ def create_app(config_name):
     mail.init_app(app)
     bootstrap.init_app(app)
     admin.init_app(app)
+    csrf.init_app(app)
 
     # Registering the main app Blueprint
     from .main import main as main_blueprint
