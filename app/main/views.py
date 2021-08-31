@@ -89,7 +89,7 @@ def edit_post(id):
     return render_template('edit_post.html', post = post, edit_form = edit_form)
 
 
-@main.route('/post/new', methods = ['POST','GET'])
+@main.route('/post/new_post', methods = ['POST','GET'])
 @login_required
 def new_post():
     post_form = PostForm()
@@ -113,10 +113,10 @@ def new_post():
     return render_template('new_post.html', post_form = post_form)
 
 
-@main.route('/user/<uname>', methods = ['POST','GET'])
-def profile(uname):
-    user = User.query.filter_by(username=uname).first()
-    posts = Post.query.filter_by(user_id = id).all()
+@main.route('/user/<int:id>', methods = ['POST','GET'])
+def profile(id):
+    user = User.query.filter_by(id=id).first()
+    posts = Post.query.filter_by(user_id=id).all()
 
     if request.method == 'POST':
         new_sub = Subscribers(email = request.form.get("subscriber"))
@@ -143,8 +143,6 @@ def update_profile(id):
     user = User.query.filter_by(id = id).first()
     form = UpdateProfile()
     if form.validate_on_submit():
-        user.first_name = form.first_name.data
-        user.last_name = form.last_name.data
         user.email = form.email.data
         user.bio = form.bio.data
 

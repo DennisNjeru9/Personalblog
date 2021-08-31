@@ -1,86 +1,13 @@
 {% extends 'bootstrap/base.html' %}
 
+    <!-- Navigation -->
+    {% block navbar %}
+        {% include 'navbar.html' %}
+    {% endblock %}
 
 
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>the_Phi Construction | Blog</title>
-        <!-- Font Awesome -->
-        <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"> -->
-        <!-- Bootstrap core CSS -->
-        <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"> -->
-        <!-- Material Design Bootstrap -->
-        <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.9/css/mdb.min.css" rel="stylesheet"> -->
-        <!-- JQuery -->
-        <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
-        <!-- Bootstrap tooltips -->
-        <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script> -->
-        <!-- Bootstrap core JavaScript -->
-        <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
-        <!-- MDB core JavaScript -->
-        <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.9/js/mdb.min.js"></script> -->
-        
-        <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}"> -->
-    <!--</head> -->
-
-    <!-- <body> -->
-        <!-- Navigation -->
-        {% block navbar %}
-            {% include 'navbar.html' %}
-        {% endblock %}
+    <!-- Block Content-->
+    {% block content %}
 
 
-        <!-- Block Content-->
-        {% block content %}
-
-
-        {% endblock %}
-
-        <!-- Footer -->
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-md-10 mx-auto">
-                        <ul class="list-inline text-center">
-                            <li class="list-inline-item">
-                                <a href="https://twitter.com/tosqih" target="_blank">
-                                    <span class="fa-stack fa-lg">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="https://github.com/dennisnjeru9" target="_blank">
-                                    <span class="fa-stack fa-lg">
-                                    <i class="fas fa-circle fa-stack-2x"></i>
-                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                        <p class="copyright text-muted">Copyright &copy; : the_Phi 2021</p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-        <!-- Bootstrap core JavaScript -->
-        <!-- <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-
-        Custom scripts for this template -->
-        <!--<script src="{{ url_for('static', filename='js/clean-blog.min.js') }}"></script> -->
-        <!-- <script>
-            $(document).ready(function () {
-            $('#summernote').summernote();
-            });
-        </script> -->
-    <!-- </body>
-</html> -->
+    {% endblock %}
